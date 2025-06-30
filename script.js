@@ -1,6 +1,7 @@
 function stringChop(str, size) {
-  // Check for null or empty input
-  if (str === null || size <= 0) return [];
+  if (typeof str !== "string" || str.length === 0 || typeof size !== "number" || size <= 0) {
+    return [];
+  }
 
   const result = [];
   for (let i = 0; i < str.length; i += size) {
@@ -11,5 +12,5 @@ function stringChop(str, size) {
 
 // Do not change the code below
 const str = prompt("Enter String.");
-const size = parseInt(prompt("Enter Chunk Size."), 10); // ✅ convert to number
+const size = parseInt(prompt("Enter Chunk Size."), 10);
 alert(JSON.stringify(stringChop(str, size)));
